@@ -43,7 +43,7 @@ if uploaded_file:
             )
             model.fit(train_df)
 
-            future = model.make_future_dataframe(periods=test_months + 1, freq='MS')
+            future = model.make_future_dataframe(periods=test_months + 12, freq='MS')
             forecast = model.predict(future)
             forecast_result = forecast[['ds', 'yhat']]
             test_df = test_df.set_index('ds')
